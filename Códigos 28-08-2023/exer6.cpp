@@ -1,0 +1,1 @@
+//6) método que recebe dois vetores de números inteiros e mostra os números que aparecem tanto no primeiro, quanto no segundo vetor.

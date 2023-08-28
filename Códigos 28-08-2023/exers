@@ -1,0 +1,64 @@
+int quadrado(int numero){
+    return numero*numero;
+}//exercicio 1
+
+// string *split(string frase, string delimitador = " ")
+// {
+//     string *vetor = (string *)malloc(sizeof(string) * 3); //alocando um vetor de string com 3 posições
+//     int inicio = 0;
+//     int fim = frase.find(delimitador);
+//     int i = 0;
+//     while (fim != -1) {
+//         vetor[i] = frase.substr(inicio, fim - inicio);
+//         inicio = fim + delimitador.size();
+//         fim = frase.find(delimitador, inicio);
+//         i++;
+//     }
+//     vetor[i] = frase.substr(inicio, fim - inicio);
+
+//     return vetor;
+// }
+// void qtasPalavras(string frase){
+//     string vetor[];
+//     vetor = split(frase, " ");
+//     cout << "Total de palavras -> " << vetor.length() << endl;
+// }
+
+void primo(int numero){
+    int divisao=0;
+
+    if (numero==0){
+        cout << "Numero nao primo\n";
+    }
+    else if(numero==1){
+        cout << "numero nao primo\n";
+    }
+    else{
+        for(int i = numero; i>1;i--){
+            if (numero%i==0){
+                divisao++;
+            }
+            
+        }
+        if (divisao==1){
+            cout << "Numero primo\n"; 
+        }else{
+            cout << "Numero nao primo\n";
+        }
+    }
+        
+}//exercicio 3
+
+struct tm pegaDataHora() {
+        time_t t = time(NULL);
+        return *localtime(&t);
+    }
+
+    
+int idade(int numero){
+    int idade;
+    struct tm dataAtual=pegaDataHora();
+    idade=(dataAtual.tm_year+1900)-numero;
+
+    return idade;
+}//exercicio 4

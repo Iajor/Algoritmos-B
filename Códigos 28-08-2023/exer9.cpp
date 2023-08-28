@@ -1,0 +1,1 @@
+//9) método que recebe um vetor e o seu tamanho. retorna o vetor inicializado com 0.
