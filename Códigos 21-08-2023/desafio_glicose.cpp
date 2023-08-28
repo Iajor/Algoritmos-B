@@ -13,22 +13,23 @@
 
     Obs: validar a medida da glicemia (10 a 600)
 */
- #include <iostream>
- #include <string>
+#include <iostream>
+#include <string>
 
- using namespace std;
- #define TAM 1000000
+using namespace std;
+#define TAM 100
 
- #include "structs.h"
- #include "util.h"
+#include "structs.h"
+#include "util.h"
 
- int main(){
 
-    Medicao vetor[TAM];
-    inicializarVetorMedicao(vetor, TAM);
-    int opcao, medicao, quantidadeMedicoes=0, media=0, mediana=0;
-    string data, hora;
-    
+int main(){
+
+Medicao vetor[TAM], temp;
+inicializarVetorMedicao(vetor, TAM);
+int opcao, medicao, quantidadeMedicoes=0;
+string data, hora;
+
     do{
         system("cls");
         cout << "MENU:\n1 - Cadastrar medicao\n2 - Listar medicoes\n3 - Calcular e mostrar media e mediana\n4 - Sair do sistema\nOpcao:";
@@ -85,6 +86,13 @@
                 if (quantidadeMedicoes==0){
                     cout << "Sem registros\n";
                 }else{
+                    for(int i=0;i<quantidadeMedicoes;i++){
+                        if (vetor[i].valorMedicao>vetor[i+1].valorMedicao){
+                            temp=vetor[i];
+                            vetor[i]=vetor[i+1];
+                            vetor[i+1]=temp;
+                        }
+                    }
                     for (int i=0;i<TAM;i++){
                         if (vetor[i].data != ""){
                             cout << "Data: " << vetor[i].data << endl << "Hora: " << vetor[i].hora << endl << "Medicao: " << vetor[i].valorMedicao << endl;
@@ -95,19 +103,42 @@
                 break;
 
             case 3:
-                cout << "Calcular e mostrar media e mediana";
-                
+                           
 
-                for(int i = 0;i<quantidadeMedicoes;i++){
-                    media+=vetor[i].valorMedicao;
+                cout << "Calcular e mostrar media e mediana\n";
+                if (quantidadeMedicoes!=0){
+                    int media=0;
+                    for (int i=0;i<quantidadeMedicoes;i++){
+                        media=media+vetor[i].valorMedicao;
+                        
+                    }
+                                                   
+                    media=media/quantidadeMedicoes;      
+                    cout << "Media das medicoes -> " << media << endl;
+
+                    int mediana = 0;
+                    if (quantidadeMedicoes == 1){
+                        cout << "Mediana -> " << vetor[0].valorMedicao << "\n";
+                    }
+                    else if (quantidadeMedicoes == 2){
+                        cout << "Mediana -> " << (vetor[0].valorMedicao+vetor[1].valorMedicao)/2 << "\n";
+                    }
+                    else if (quantidadeMedicoes % 2 == 1){
+                        mediana=(quantidadeMedicoes)/2;
+                        cout << "Mediana -> " << vetor[mediana].valorMedicao << "\n";
+                    }
+                    else{
+                        int valor1, valor2;
+                        valor1=quantidadeMedicoes/2;
+                        valor2=valor1-1;
+                        cout << "Mediana -> " << (vetor[valor1].valorMedicao+vetor[valor2].valorMedicao)/2 << "\n";
+                    }
+                    
                 }
-                if (quantidadeMedicoes % 2 == 1){
-                    mediana=(quantidadeMedicoes+1)/2;
-                }else{
-                    mediana=((quantidadeMedicoes/2+1)+(quantidadeMedicoes/2+1))/2;
+                else{
+                    cout << "Sem registros\n";
+                    break;                       
                 }
-                cout << "A media das medicoes eh: " << media/quantidadeMedicoes << endl;
-                cout << mediana;
                 break;
 
             case 4:
@@ -119,9 +150,9 @@
         }    
         system("pause");
     } while (opcao != 4);
-    
-   
+
 
     return 1;
-    
+
+
 }

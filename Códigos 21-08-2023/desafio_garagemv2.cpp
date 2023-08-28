@@ -99,7 +99,7 @@ int main(){
             break;
 
         case 3:
-            cout << "Retirada de veiculo";
+            cout << "Retirada de veiculo\n";
             break;
 
         case 4:
@@ -114,5 +114,5 @@ int main(){
     
 
 
-    return 1;
+   
 }

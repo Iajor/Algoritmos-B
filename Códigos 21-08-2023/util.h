@@ -9,6 +9,6 @@ void inicializarVetorMedicao(Medicao vetor[], int n){
     for (int i=0;i<n;i++){
         vetor[i].data = "";
         vetor[i].hora = "";
-        vetor[i].valorMedicao = 0;
+        vetor[i].valorMedicao;
     }
 }
