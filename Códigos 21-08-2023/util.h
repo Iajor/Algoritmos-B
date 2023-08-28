@@ -15,11 +15,13 @@ void inicializarVetorMedicao(Medicao vetor[], int n){
 
 void ordenadaLista(Medicao vetor[], int n){
     Medicao temp;
-    for(int i=0;i<n-1;i++){
-        if (vetor[i].valorMedicao>vetor[i+1].valorMedicao){
-            temp=vetor[i];
-            vetor[i]=vetor[i+1];
-            vetor[i+1]=temp;
+    for(int i=0;i<n;i++){
+        for(int j=0;j<n;j++){
+            if (vetor[j].valorMedicao>vetor[i].valorMedicao){
+            temp=vetor[j];
+            vetor[j]=vetor[i];
+            vetor[i]=temp;
+            }
         }
     }
 }

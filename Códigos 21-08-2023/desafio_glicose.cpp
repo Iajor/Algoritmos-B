@@ -39,6 +39,7 @@ string data, hora;
             case 1:
                 cout << "Cadastro de medicao\n";
                 
+                
                 while(true){
                     cout << "Informe o valor da medicao ";
                     cin >> medicao;
@@ -79,7 +80,7 @@ string data, hora;
                         break;
                         }
                     }
-                
+                fflush(stdin);
                 break;
             case 2:
                 cout << "Listagem de medicoes\n";
