@@ -3,8 +3,8 @@
     - não usar: métodos/módulos próprios
 
     Menu:
-    1 - entrar na garagem (deve ter controle de duplicidade);
-    2 - lista carros (mostrar placa, data e hora de entrada);
+    1 - entrar na garagem (deve ter controle de duplicidade); V
+    2 - lista carros (mostrar placa, data e hora de entrada); V
     3 - sair da garagem (remover carro e reorganizar o vetor);
     4 - sair;
     opção:
@@ -24,7 +24,7 @@ using namespace std;
 
 int main(){
 
-    Veiculo vetor[TAM];
+    Veiculo vetor[TAM], carroRetirada;
     inicializarVetorVeiculo(vetor, TAM);
     int opcao;
     string placa, hora;
@@ -99,7 +99,19 @@ int main(){
             break;
 
         case 3:
+            
+            string placaRetirada;
+            int confirmacao;
             cout << "Retirada de veiculo\n";
+            if (quantidadeCarros==0){
+                cout << "Garagem vazia\n";
+            }else{
+               
+                
+                
+                                       
+            }
+                
             break;
 
         case 4:
