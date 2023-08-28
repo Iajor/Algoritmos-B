@@ -86,14 +86,14 @@ string data, hora;
                 if (quantidadeMedicoes==0){
                     cout << "Sem registros\n";
                 }else{
-                    for(int i=0;i<quantidadeMedicoes;i++){
+                    for(int i=0;i<quantidadeMedicoes-1;i++){
                         if (vetor[i].valorMedicao>vetor[i+1].valorMedicao){
                             temp=vetor[i];
                             vetor[i]=vetor[i+1];
                             vetor[i+1]=temp;
                         }
                     }
-                    for (int i=0;i<TAM;i++){
+                    for (int i=0;i<quantidadeMedicoes;i++){
                         if (vetor[i].data != ""){
                             cout << "Data: " << vetor[i].data << endl << "Hora: " << vetor[i].hora << endl << "Medicao: " << vetor[i].valorMedicao << endl;
                         }
