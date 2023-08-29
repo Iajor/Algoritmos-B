@@ -7,6 +7,19 @@ using namespace std;
 
 #include "exers"
 
+struct tm pegaDataHora() {
+        time_t t = time(NULL);
+        return *localtime(&t);
+    }
+
+    
+int idade(int numero){
+    int idade;
+    struct tm dataAtual=pegaDataHora();
+    idade=(dataAtual.tm_year+1900)-numero;
+
+    return idade;
+}
 
 int main(){
     int nascimento;

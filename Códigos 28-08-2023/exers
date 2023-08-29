@@ -49,16 +49,50 @@ void primo(int numero){
         
 }//exercicio 3
 
-struct tm pegaDataHora() {
-        time_t t = time(NULL);
-        return *localtime(&t);
+
+void populaVetor(int vetor[]){
+    cout << "Informe os numeros do vetor\n";
+    for(int i=0;i<TAM;i++){
+        cin >> vetor[i];
     }
+}
 
-    
-int idade(int numero){
-    int idade;
-    struct tm dataAtual=pegaDataHora();
-    idade=(dataAtual.tm_year+1900)-numero;
+int maior(int vetor[]){
+    int indiceMaior=0;
+    for (int i=0;i<TAM;i++){
+        if (vetor[i]>vetor[indiceMaior]){
+            indiceMaior=i;
+        }
+    }
+    return vetor[indiceMaior];
+}// exercicio 5
 
-    return idade;
-}//exercicio 4
+// void ordenadaLista(int vetor[]){
+//     int temp;
+//     for(int i=0;i<TAM;i++){
+//         for(int j=0;j<TAM;j++){
+//             if (vetor[j]>vetor[i]){
+//             temp=vetor[j];
+//             vetor[j]=vetor[i];
+//             vetor[i]=temp;
+//             }
+//         }
+//     }
+// }
+
+void comum(int vetor1[], int vetor2[]){
+    for(int i=0;i<TAM;i++){
+        for(int j=0;j<TAM;j++){
+            if (vetor1[i]==vetor2[j]){
+                cout << "Esta nos dois vetores -> " << vetor1[i] << endl;
+            }
+        }
+    }
+}//exercicio 6
+
+
+void inicializaVetor(int vetor[], int tamanho) {
+    for (int i = 0; i < tamanho; i++) {
+        vetor[i] = 0;
+    }
+}
