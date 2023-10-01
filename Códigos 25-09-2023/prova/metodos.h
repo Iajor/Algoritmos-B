@@ -9,6 +9,12 @@ void inicializarVetorParticipante(Participante vetor[], int n){
     }
 }
 
+void exibirMenu(){
+    cout << "Menu:\n1-Fazer inscrição no evento.\n2-Registrar a entrada no evento.\n3-Registrar a saida do evento.\n4-Encerrar programa.\nOpcao:" << endl;
+    cin >> opcao;
+ 
+}
+
 bool jaInscrito(string matricula, Participante vetor[], int n){
     for (int i = 0;i < n; i++){
         if (vetor[i].matricula == matricula){
@@ -63,38 +69,6 @@ void fazerInscricao(Participante vetor[], int n){
 
 
 
-void exibirMenu(){
-    cin >> opcao;
-    cout << "Menu:\n1-Fazer inscrição no evento.\n2-Registrar a entrada no evento.\n3-Registrar a saida do evento.\n4-Encerrar programa.\nOpcao:" << endl;
-
-    switch (opcao){
-    case 1:
-        cout << "Inscricao no evento" << endl;
-        fazerInscricao(vetor, n);
-
-        break;
-
-    case 2:
-        
-        break;
-
-    case 3:
-        
-        break;
-
-    case 4:
-        
-        break;
-
-    case 5:
-        
-        exit(1);
-    
-    default:
-        break;
-    }
-
-}
 
 
 void conexaoBase(Participante vetor[]){
